@@ -7,7 +7,7 @@ let offset = 0;
 
 function convertPokemonToLi(pokemon) {
     return `
-        <li class="pokemon ${pokemon.type}" onclick="detailsLiClick(${pokemon.number})">
+        <li class="pokemon ${pokemon.type}" onclick="detailsLiClick('${encodeURIComponent(JSON.stringify(pokemon))}')">
             <span class="number">#${pokemon.number}</span>
             <span class="name">${pokemon.name}</span>
 
@@ -46,6 +46,15 @@ loadMoreButton.addEventListener('click', () => {
     }
 })
 
-function detailsLiClick(pokemonNumber) {
-    alert(`Você clicou em um item de lista! ${pokemonNumber}`);
+function detailsLiClick(encodedPokemon) {
+    
+
+    // Converta a string JSON de volta para um objeto
+    let pokemon = JSON.parse(decodeURIComponent(encodedPokemon));
+    alert(`Você clicou ` + pokemon.name + ' ' + pokemon.number);
+    // Agora você pode acessar as propriedades do pokemon
+    // console.log(pokemon.name);
+    // console.log(pokemon.number);
+
+    window.location.href = `detailsPoke.html?pokemonJson=${(encodedPokemon)}`;
 }
