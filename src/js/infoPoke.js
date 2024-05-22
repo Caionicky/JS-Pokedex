@@ -6,6 +6,9 @@ const pokemonJson = urlParams.get('pokemonJson');
 const pokemon = JSON.parse(decodeURIComponent(pokemonJson));
 console.log(pokemon.name)
 
+// let statusValue = 4;
+// let percentage = (statusValue / 100) * 100;
+
 convertPokemonToLi(pokemon)
 
 
@@ -24,27 +27,38 @@ function convertPokemonToLi(pokemon) {
                 <ol>
                     ${pokemon.types.map((type) => `<li class="type"><img src="https://veekun.com/dex/media/types/en/${type}.png"></li>`).join('')}
                 </ol>
-                
             </span>
             <div class="detail"> 
                 <p>HP:</p>
                 <p>${pokemon.hp}</p>
-                <p></p>
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" style="width: ${(pokemon.hp/255)*100}%"></div>
+                    </div>
                 <p>Attack: </p>
                 <p>${pokemon.attack}</p>
-                <p></p>
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" style="width: ${(pokemon.attack/190)*100}%"></div>
+                    </div>
                 <p>Defense: </p>
                 <p>${pokemon.defense}</p>
-                <p></p>
-                <p>SP Attack: </p>
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" style="width: ${(pokemon.defense/250)*100}%"></div>
+                    </div>
+                <p>Sp. Atk: </p>
                 <p>${pokemon.SPattack}</p>
-                <p></p>
-                <p>Sp Defense: </p>
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" style="width: ${(pokemon.SPattack/194)*100}%"></div>
+                    </div>
+                <p>Sp. Def: </p>
                 <p>${pokemon.SPdefense}</p>
-                <p></p>
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" style="width: ${(pokemon.SPdefense/250)*100}%"></div>
+                    </div>
                 <p>Speed: </p>
                 <p>${pokemon.speed}</p>
-                <p></p>
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" style="width: ${(pokemon.speed/200)*100}%"></div>
+                    </div>
             </div>
         </div>
     `
@@ -52,3 +66,6 @@ function convertPokemonToLi(pokemon) {
 
 const newHtml = convertPokemonToLi(pokemon)
 detailsList.innerHTML += newHtml
+
+// const bar = document.getElementById('progressBarFill');
+// bar.style.width = percentage + '%';

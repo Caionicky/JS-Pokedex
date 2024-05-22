@@ -1,4 +1,4 @@
-.content{
+.content {
     justify-content: center;
     height: 100vh;
 }
@@ -12,7 +12,7 @@
     color: #cccccc;
 } */
 
-.pokeInfo{
+.pokeInfo {
     display: grid;
     grid-template-columns: 1fr;
     margin: 0;
@@ -21,7 +21,7 @@
     align-items: center;
 }
 
-.number{
+.number {
     color: #cecece;
     opacity: .3;
     text-align: center;
@@ -29,7 +29,7 @@
     margin-bottom: 1rem;
 }
 
-.name{
+.name {
     color: #cecece;
     opacity: .9;
     text-align: center;
@@ -38,7 +38,7 @@
     text-transform: capitalize;
 }
 
-.image-area{
+.image-area {
     background-color: #cccccc;
     justify-content: center;
     align-items: center;
@@ -46,7 +46,7 @@
     display: flex;
 }
 
-.image-area img{
+.image-area img {
     margin: 1rem;
     justify-content: center;
     align-items: center;
@@ -55,7 +55,7 @@
     height: 218px;
 }
 
-.types{
+.types {
     align-items: center;
     justify-content: center;
     display: flex;
@@ -73,16 +73,35 @@
     display: inline;
 }
 
-.detail{
+.detail {
     background-color: #cccccc;
     /* text-align: left; */
     padding: 1rem;
     border-radius: 1rem;
     display: grid;
+    align-items: center;
     grid-template-columns: 1fr 0.5fr 1fr;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
+}
+
+.progress-bar {
+    display: flex;
+
+    align-items: center;
+    width: 100%;
+    background-color: #bdbdbd;
+    border-radius: 1rem;
+    overflow: hidden;
+    height: 10%;
+}
+
+.progress-bar-fill {
+    height: 1rem;
+    background-color: green;
+    width: 0%;
+    transition: width 2s;
 }
 
 
